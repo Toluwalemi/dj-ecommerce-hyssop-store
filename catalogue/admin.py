@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from catalogue.models import Category, Product
+from catalogue.models import Category, Product, Review
 
 
 @admin.register(Category)
@@ -10,9 +10,15 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+class OrderReviewInline(admin.TabularInline):
+    model = Review
+
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'slug', 'price', 'available')
     list_filter = ('category', 'available')
     list_editable = ('price', 'available')
     prepopulated_fields = {'slug': ('name',)}
+
+    inlines = [OrderReviewInline]
