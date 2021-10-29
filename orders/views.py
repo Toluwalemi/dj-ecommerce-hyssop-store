@@ -45,15 +45,15 @@ def order_create(request):
                 {'order': order}
             )
 
-        else:
-            order_form = OrderCreateForm()
+    else:
+        order_form = OrderCreateForm()
 
-        return render(
-            request,
-            'order_create.html',
-            {
-                'cart': cart,
-                'order_form': order_form,
-                'transport_cost': transport_cost
-            }
-        )
+    return render(
+        request,
+        'order_create.html',
+        {
+            'cart': cart,
+            'order_form': order_form,
+            'transport_cost': transport_cost
+        }
+    )
