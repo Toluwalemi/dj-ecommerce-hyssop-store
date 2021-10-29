@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('catalogue.urls', namespace='catalogues')),
     path('cart/', include('cart.urls', namespace='cart')),
+    path('orders/', include('cart.urls', namespace='orders')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
