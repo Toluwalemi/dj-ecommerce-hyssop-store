@@ -20,9 +20,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('catalogue.urls', namespace='catalogues')),
     path('cart/', include('cart.urls', namespace='cart')),
-    path('orders/', include('cart.urls', namespace='orders')),
+    path('orders/', include('orders.urls', namespace='orders')),
+    path('', include('catalogue.urls', namespace='catalogues')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
